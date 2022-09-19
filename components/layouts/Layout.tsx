@@ -2,6 +2,8 @@ import {  FC, useState } from "react"
 
 
 import Head from "next/head"
+import { Navbar } from "../ui";
+
 
 interface Props {
     title?: string;
@@ -23,9 +25,11 @@ export const Layout: FC<Props> = ({children, title}) => {
                 <meta name='keywords' content={`${title}, pokemon,pokedex`}/>                
             </Head>
 
-            {/* Navbar */}
+            <Navbar/>
 
-            <main>
+            <main style={{
+                padding: '0 2em'
+            }}>
                 {children}
             </main>
         </>
