@@ -1,7 +1,7 @@
 
 
 import Document, { Html, Head, Main, NextScript,DocumentContext } from 'next/document';
-import cssBaseline from '@nextui-org/react/esm/css-baseline';
+import CssBaseline from '@nextui-org/react/esm/css-baseline';
 
 
 
@@ -12,6 +12,7 @@ class MyDocument extends Document {
         const initialProps = await Document.getInitialProps(ctx);
         return {
             ...initialProps,
+            styles: <>{initialProps.styles}</>
             
         }
     }
@@ -20,7 +21,7 @@ class MyDocument extends Document {
         return (
             <Html lang = 'es'>
                 <Head>
-
+                    {CssBaseline.flush()}
                 </Head>
                 <body>
                     <Main />
