@@ -4,6 +4,8 @@ import { Button, Card, Container, Grid, Image, Text } from '@nextui-org/react';
 import { pokeApi } from '../../api';
 import { Layout } from '../../components/layouts'
 import { Pokemon } from '../../interfaces';
+import { localFavorites } from '../../utils';
+
 
 interface Props {
     pokemon: Pokemon;
@@ -11,7 +13,17 @@ interface Props {
 
 const PokemonPage: NextPage<Props> = ({ pokemon }) => {
 
-    console.log(pokemon);
+    const onToggleFavorite = () => {
+        // console.log('ID',pokemon.id);
+        // localStorage.setItem('favorites', `${pokemon.id}`)
+        localFavorites.toggleFavorite(pokemon.id)
+    }
+
+    // console.log(localStorage.getItem('favorites'));
+    
+
+  
+
 
     return (
         <Layout title={pokemon.name}>
@@ -33,7 +45,11 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
                     <Card>
                         <Card.Header css={{ display: 'flex', justifyContent: 'space-between' }}>
                             <Text h1 transform="capitalize">{pokemon.name}</Text>
-                            <Button color="gradient" ghost>
+                            <Button 
+                            color="gradient" 
+                            ghost
+                            onClick={onToggleFavorite}
+                            >
                                 Guardar en favoritos
                             </Button>
                         </Card.Header>
@@ -77,23 +93,6 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
 
 // You should use getStaticPaths if you’re statically pre-rendering pages that use dynamic routes
 
-// export const getStaticPaths: GetStaticPaths = async (ctx) => {
-
-//     const pokemons151 = [...Array(151).map((value,index) => `${index + 1}`)];
-
-//     return {
-//         // paths: [
-//         //     {
-//         //         params: {id: '1'}
-//         //     }
-//         // ],
-//         paths:pokemons151.map(id => ({
-//             params: {id}
-//         })),
-//         fallback: false
-//     }
-// }
-
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
     const pokemons151 = [...Array(151)].map((value, index) => `${index + 1}`);
@@ -120,7 +119,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         }
     }
 }
-
-
 
 export default PokemonPage;
