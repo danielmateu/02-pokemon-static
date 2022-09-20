@@ -1,9 +1,9 @@
 import { useTheme, Text, Spacer } from "@nextui-org/react"
 import Image from "next/image";
+import { Pokemon } from "../../interfaces";
 
 
 export const Navbar = () => {
-
 
     const {theme} = useTheme();
 
@@ -19,7 +19,7 @@ export const Navbar = () => {
         }}>
 
             <Image 
-            src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png' 
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png`} 
             alt='icono de la app' 
             width={90}
             height={90}
