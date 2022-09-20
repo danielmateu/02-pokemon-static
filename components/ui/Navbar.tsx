@@ -10,11 +10,11 @@ export const Navbar = () => {
     return (
         <div style={{
             display: 'flex',
-            width: '100%',
+            width: '100vw',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'start',
-            padding: '0 2em',
+            padding: '0 1em',
             backgroundColor: theme?.colors.gray900.value
         }}>
 
