@@ -7,14 +7,14 @@ import { SmallPokemon } from '../../interfaces';
 
 interface Props {
     pokemonId: number;
-    pokemonName: SmallPokemon;
-    // pokemonName: string;
+    
+    
     
 }
 
 
 
-export const FavoriteCardPokemon:FC<Props> = ({pokemonId, pokemonName}) => {
+export const FavoriteCardPokemon:FC<Props> = ({pokemonId}) => {
 
     const router = useRouter();
     
