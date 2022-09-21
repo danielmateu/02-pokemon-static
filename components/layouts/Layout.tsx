@@ -1,31 +1,38 @@
-import {  FC, useState } from "react"
+import { FC, useState } from "react"
 
 
 import Head from "next/head"
 import { Navbar } from "../ui";
 
 
+
 interface Props {
     title?: string;
     children?: React.ReactNode
-    
+
 }
 
 
 //Title: Listado de Pokemons
-export const Layout: FC<Props> = ({children, title}) => {
+export const Layout: FC<Props> = ({ children, title }) => {
 
-   
+    const origin = (typeof window === 'undefined') ? '' : window.location.origin;
+    
+
     return (
         <>
             <Head>
-                <title>{ title || "Pokemon App"}</title>
-                <meta name="author" content="Daniel Mateu"/>
-                <meta name="description" content={`Información sobre ${title}`}/>
-                <meta name='keywords' content={`${title}, pokemon,pokedex`}/>                
+                <title>{title || "Pokemon App"}</title>
+                <meta name="author" content="Daniel Mateu" />
+                <meta name="description" content={`Información sobre ${title}`} />
+                <meta name='keywords' content={`${title}, pokemon,pokedex`} />
+
+                <meta property="og:title" content={`Información sobre ${title}`} />
+                <meta property="og:description" content={`Esta es la página sobre ${title}`} />
+                <meta property="og:image" content={`${origin}/img/banner.png`} />
             </Head>
 
-            <Navbar/>
+            <Navbar />
 
             <main style={{
                 padding: '0 2em'

@@ -1,17 +1,23 @@
+import { FC } from 'react';
+
 import { Card, Grid } from '@nextui-org/react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { FC } from 'react';
+import { SmallPokemon } from '../../interfaces';
 
 interface Props {
     pokemonId: number;
+    pokemonName: SmallPokemon;
+    // pokemonName: string;
+    
 }
 
-export const FavoriteCardPokemon:FC<Props> = ({pokemonId}) => {
+
+
+export const FavoriteCardPokemon:FC<Props> = ({pokemonId, pokemonName}) => {
 
     const router = useRouter();
-
+    
     const onFavoriteClicked = () => {
         //router ...pokemon ...id
         // <Link href = {`/${pokemonId}`}/>
@@ -24,7 +30,7 @@ export const FavoriteCardPokemon:FC<Props> = ({pokemonId}) => {
             onClick={onFavoriteClicked}
             key={pokemonId}
             xs={6} sm={3} md={2} xl={1}>
-            <Card hoverable clickable css={{ padding: 10 }}>
+            <Card hoverable clickable css={{ padding: 10 }} >
                 <Card.Image
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`}
                     width={'100%'} height={140}

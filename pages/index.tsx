@@ -9,6 +9,7 @@ import { PokemonListResponse, SmallPokemon } from '../interfaces';
 import { PokemonCard } from '../components/pokemon';
 
 import { FC } from 'react';
+import Image from 'next/image';
 
 
 interface Props {
@@ -24,6 +25,8 @@ const HomePage: NextPage<Props> = ({ pokemons }) => {
 
   return (
     <Layout title="Listado de Pokemons">
+
+      {/* <Image alt='imagen pokemon'src='/img/banner.png' width={200} height={150}/> */}
 
       {/* <Button color='gradient'>Hola mundo! 😁</Button> */}
       <Grid.Container gap = {2} justify = 'flex-start'>
